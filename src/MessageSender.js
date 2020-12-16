@@ -6,8 +6,8 @@ import InsertEmoticonIcon from '@material-ui/icons/InsertEmoticon';
 import "./MessageSender.css";
 import {useStateValue} from "./StateProvider";
 import db from "./firebase";
-import firebase from "./firebase";
-const admin= require('firebase-admin');
+// import firebase from "./firebase";
+import firebase from "firebase";
 
 
 function MessageSender() {
@@ -21,7 +21,8 @@ function MessageSender() {
 
         db.collection("posts").add ({
             message: input,
-            timestamp: admin.firestore.FieldValue.serverTimestamp(),
+            timestamp: firebase.database.ServerValue.TIMESTAMP,
+            // timestamp: firebase.firestore.FieldValue.serverTimestamp(),
             profilePic: user.photoURL,
             username: user.displayName,
             image: imageUrl,
@@ -34,8 +35,6 @@ function MessageSender() {
         
     };
    
-// console.log(admin.firebase.fieldValue.serverTimestamp())
-
     return (
         <div className="messageSender">
         <div className="messageSender__top">

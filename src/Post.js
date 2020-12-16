@@ -25,9 +25,11 @@ function Post({profilePic, image,username,timestamp, message})
             <div className="post__bottom">
                 <p>{message}</p>
             </div>
+
             <div className="post__image">
             <img src={image} alt="" />
             </div>
+
             <div className="post__options">
                 <div className="post__option">
                 <ThumbUpIcon />
@@ -49,6 +51,7 @@ function Post({profilePic, image,username,timestamp, message})
                 <ExpandMoreIcon />
                 <p></p>
                 </div>
+                
             </div>
         </div>
     );
